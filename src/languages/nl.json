@@ -1,0 +1,96 @@
+{
+  "home": {
+    "title": "Board Game Rooms",
+    "username": {
+      "label": "Gebruikersnaam"
+    },
+    "room": {
+      "label": "Kamer"
+    },
+    "password": {
+      "label": "Wachtwoord",
+      "hint": "Optioneel"
+    },
+    "existing_room": {
+      "label": "Ga naar bestaande kamer"
+    },
+    "join_room": "Ga naar kamer",
+    "create_room": "Maak kamer"
+  },
+  "header": {
+    "title": "Board Game Rooms"
+  },
+  "settings": {
+    "password": "Wachtwoord",
+    "no_password": "Geen wachtwoord",
+    "room_capacity": "Kamer capaciteit",
+    "leave_room": {
+      "btn": "Verlaat kamer",
+      "modal": {
+        "text": "Weet je zeker dat je de kamer wilt verlaten?",
+        "leave": "Verlaat kamer",
+        "stay": "Blijf in kamer"
+      }
+    }
+  },
+  "game_menu": {
+    "not_available": "Het spelmenu is alleen beschikbaar als er een actief spel is",
+    "players": "Spelers in het spel",
+    "stop_game": {
+      "btn": "Stop spel",
+      "modal": {
+        "text": "Weet je zeker dat je dit spel wilt stoppen?",
+        "stop": "Stop",
+        "continue": "Ga verder"
+      }
+    },
+    "leave_game": {
+      "btn": "Verlaat spel",
+      "modal": {
+        "text": "Weet je zeker dat je dit spel wilt verlaten?",
+        "leave": "Verlaat spel",
+        "stay": "Blijf in spel"
+      }
+    },
+    "rejoin_game": {
+      "btn": "Keer terug naar spel"
+    }
+  },
+  "page_not_found": {
+    "text": "Deze pagina bestaat niet",
+    "go_back": "Ga terug"
+  },
+  "test_page": {
+    "title": "Test sockets.io verbinding",
+    "connected": "Verbonden:",
+    "echo": "Echo bericht",
+    "send": "Verstuur",
+    "reset": "Reset",
+    "sent": "Bericht veronden:",
+    "received": "Bericht ontvangen:",
+    "messages": "Berichten"
+  },
+  "lobby": {
+    "title": "Spellenhal",
+    "players": "spelers",
+    "play": "Speel",
+    "create_game": {
+      "create": "Maak spel",
+      "text": "Kies de spelers die mee willen doen aan het spel",
+      "selected": "spelers gekozen"
+    }
+  },
+  "modal": {
+    "text": "Korte beschrijving",
+    "close": "Sluit"
+  },
+  "snackbar": {
+    "close": "Sluit",
+    "room_exists": "Er bestaat al een kamer met die naam.",
+    "room_max_capacity": "Deze kamer is vol.",
+    "room_username_taken": "Deze gebruikersnaam is al gebruikt in deze kamer.",
+    "room_password_incorrect": "Het wachtwoord is niet juist.",
+    "room_does_not_exist": "Deze kamer bestaat niet.",
+    "room_rejoin_password_required": "Een wachtwoord is nodig voor deze kamer"
+  }
+}

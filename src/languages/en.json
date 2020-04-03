@@ -1,0 +1,96 @@
+{
+  "home": {
+    "title": "Board Game Rooms",
+    "username": {
+      "label": "Username"
+    },
+    "room": {
+      "label": "Room"
+    },
+    "password": {
+      "label": "Password",
+      "hint": "Optional"
+    },
+    "existing_room": {
+      "label": "Join existing room"
+    },
+    "join_room": "Join room",
+    "create_room": "Create room"
+  },
+  "header": {
+    "title": "Board Game Rooms"
+  },
+  "settings": {
+    "password": "Password",
+    "no_password": "No password",
+    "room_capacity": "Room capacity",
+    "leave_room": {
+      "btn": "Leave room",
+      "modal": {
+        "text": "Are you sure you wish to leave the room?",
+        "leave": "Leave",
+        "stay": "Stay"
+      }
+    }
+  },
+  "game_menu": {
+    "not_available": "Game menu is only available when playing a game",
+    "players": "Players in game",
+    "stop_game": {
+      "btn": "Stop game",
+      "modal": {
+        "text": "Are you sure you wish to stop this game?",
+        "stop": "Stop",
+        "continue": "Continue"
+      }
+    },
+    "leave_game": {
+      "btn": "Leave game",
+      "modal": {
+        "text": "Are you sure you wish to leave this game?",
+        "leave": "Leave",
+        "stay": "Stay"
+      }
+    },
+    "rejoin_game": {
+      "btn": "Rejoin game"
+    }
+  },
+  "page_not_found": {
+    "text": "This page does not exist",
+    "go_back": "Go back"
+  },
+  "test_page": {
+    "title": "Test sockets.io connection",
+    "connected": "Connected:",
+    "echo": "Echo message",
+    "send": "Send",
+    "reset": "Reset",
+    "sent": "Message sent:",
+    "received": "Message received:",
+    "messages": "Messages"
+  },
+  "lobby": {
+    "title": "Game hall",
+    "players": "players",
+    "play": "Play",
+    "create_game": {
+      "create": "Create game",
+      "text": "Select the players that wish to play the game",
+      "selected": "selected"
+    }
+  },
+  "modal": {
+    "text": "Modal description",
+    "close": "Cancel"
+  },
+  "snackbar": {
+    "close": "Close",
+    "room_exists": "A room with that name already exists.",
+    "room_max_capacity": "This room is full.",
+    "room_username_taken": "That username is taken in the room.",
+    "room_password_incorrect": "The room password is incorrect.",
+    "room_does_not_exist": "That room does not exist.",
+    "room_rejoin_password_required": "A password is required for this room."
+  }
+}

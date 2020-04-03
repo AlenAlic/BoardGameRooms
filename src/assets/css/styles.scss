@@ -1,0 +1,29 @@
+//Remove chrome's ugly yellow background for suggestions:
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active
+{
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+[v-cloak]
+{
+    display: none;
+}
+
+.text--wrap {
+  white-space: pre-line !important;
+}
+
+.flex_text--center {
+  justify-content: center;
+}
+
+.not_allowed {
+  cursor: not-allowed;
+}
+
+.clickable {
+  cursor: pointer;
+}
