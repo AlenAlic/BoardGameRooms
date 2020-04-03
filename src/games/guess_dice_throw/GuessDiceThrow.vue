@@ -27,7 +27,7 @@
                 <v-btn
                   v-for="n in 6"
                   :key="n"
-                  class="mx-3"
+                  class="mx-3 my-3"
                   color="primary"
                   large
                   @click="sendGuess(n)"
