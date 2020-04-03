@@ -131,8 +131,20 @@ sudo service nginx reload
 echo "Setting up nginx for backend complete========="
 
 
-echo "Creating update script========================"
-bash -c 'cat > deployment/update' << EOL
+echo "Creating update scripts======================="
+bash -c 'cat > deployment/update_frontend' << EOL
+echo "Checking out new version===="
+git pull
+echo "========================Done"
+echo "Building frontend==========="
+npm install
+npm run build
+echo "========================Done"
+echo "Restarting Services========="
+sudo systemctl reload nginx
+echo "========================Done"
+EOL
+bash -c 'cat > deployment/update_backend' << EOL
 echo "Checking out new version===="
 git pull
 echo "========================Done"
@@ -141,16 +153,11 @@ source venv/bin/activate
 pip install -r requirements.txt
 deactivate
 echo "========================Done"
-echo "Building frontend==========="
-npm install
-npm run build
-echo "========================Done"
 echo "Restarting Services========="
 sudo supervisorctl restart $BGM_GUNICORN
-sudo systemctl reload nginx
 echo "========================Done"
 EOL
-echo "Created update script========================="
+echo "Created update scripts========================"
 
 
 else
