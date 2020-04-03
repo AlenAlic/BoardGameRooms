@@ -11,10 +11,13 @@ import NL from "./nl.json";
 // GuessDiceThrow
 import GDT_EN from "../games/guess_dice_throw/languages/en.json";
 import GDT_NL from "../games/guess_dice_throw/languages/nl.json";
+// Regenwormen
+import RWM_EN from "../games/regenwormen/languages/en.json";
+import RWM_NL from "../games/regenwormen/languages/nl.json";
 
 // Combine all translations
-const en = { ...EN, ...GDT_EN };
-const nl = { ...NL, ...GDT_NL };
+const en = { ...EN, ...GDT_EN, ...RWM_EN };
+const nl = { ...NL, ...GDT_NL, ...RWM_NL };
 
 const messages = {
   en,

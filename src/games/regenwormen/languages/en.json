@@ -1,0 +1,12 @@
+{
+  "RWM": {
+    "description": "Regenwormen (only the base game).",
+    "throw_dice": "Throw dice",
+    "grab_dice": "Grab dice",
+    "end_turn": "End turn",
+    "total_score": "Total:",
+    "start_game": "Start game",
+    "winner": "Winner!",
+    "end_results": "End result"
+  }
+}

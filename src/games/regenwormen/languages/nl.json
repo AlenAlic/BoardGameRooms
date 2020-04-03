@@ -1,0 +1,12 @@
+{
+  "RWM": {
+    "description": "Regenwormen (het basisspel).",
+    "throw_dice": "Gooi dobbelstenen",
+    "grab_dice": "Pak dobbelstenen",
+    "end_turn": "Beëindig beurt",
+    "total_score": "Totaal:",
+    "start_game": "Start spel",
+    "winner": "Winnaar!",
+    "end_results": "Eindresultaat"
+  }
+}
