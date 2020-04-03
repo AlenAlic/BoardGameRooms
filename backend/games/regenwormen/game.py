@@ -154,7 +154,9 @@ class Regenwormen(Game):
             self.board.sort_tiles()
             active_tiles = [tile for tile in self.board.tiles if tile.active]
             if len(active_tiles) > 0:
-                active_tiles[-1].active = False
+                last_tile = active_tiles[-1]
+                if last_tile.value < value:
+                    last_tile.active = False
 
     def end_turn(self):
         if self.turn_over:
