@@ -139,6 +139,7 @@ echo "========================Done"
 echo "Installing requirements====="
 source venv/bin/activate
 pip install -r requirements.txt
+deactivate
 echo "========================Done"
 echo "Building frontend==========="
 npm install
