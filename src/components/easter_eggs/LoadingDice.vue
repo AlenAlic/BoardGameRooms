@@ -64,6 +64,7 @@ export default {};
   display: flex;
   align-items: center;
   justify-content: center;
+  height: auto !important;
 }
 .face {
   display: flex;
