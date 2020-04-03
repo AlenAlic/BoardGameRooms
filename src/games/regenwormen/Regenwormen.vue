@@ -144,7 +144,7 @@
             {{ $t("RWM.winner") }}
           </div>
           <div class="title">
-            {{ `${game.players[winner].name} (${game.scores[winner]})` }}
+            {{ `${game.players[game.winner].name} (${game.scores[game.winner]})` }}
           </div>
         </v-col>
       </v-row>
