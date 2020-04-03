@@ -1,9 +1,9 @@
 #!/bin/bash
 
-BGM_NAME=${BGM_NAME:-BoardGameRooms}
-BGM_PORT=${BGM_PORT:-8300}
-BGM_GUNICORN=${BGM_GUNICORN:-boardgamerooms}
-
+export BGM_NAME=${BGM_NAME:-BoardGameRooms}
+export BGM_PORT=${BGM_PORT:-8400}
+export BGM_GUNICORN=${BGM_GUNICORN:-boardgamerooms}
+export DOMAIN=${DOMAIN:-example.com}
 
 clear
 echo "Settings:"
@@ -109,7 +109,7 @@ server {
         proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
     }
 
-    location /api/ping {
+    location /ping {
         include proxy_params;
         proxy_pass http://127.0.0.1:$BGM_PORT/api/ping;
     }
