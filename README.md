@@ -12,7 +12,7 @@ Click [here][CONTRIBUTE] to see the details on the requirements and other detail
 
 ## Development
 Made with Flask backend and Vue frontend.
-#### Install dependencies
+### Install dependencies
     # create venv
     python3 -m venv venv
     source venv/bin/activate
@@ -20,7 +20,7 @@ Made with Flask backend and Vue frontend.
     # install dependencies
     pip install -r requirements.txt
     npm install
-#### Dev servers
+### Dev servers
     # frontend
     npm run serve
     
@@ -34,7 +34,7 @@ Made with Flask backend and Vue frontend.
 ## Production
 ### Preparations
 Before installing, make sure you have a domain name available.
-#### Installing the application
+### Installing the application
 Install the application through git:
 
     git clone https://github.com/AlenAlic/BoardGameRooms
@@ -45,7 +45,7 @@ Before installing anything, set the following environment variables:
     export FLASK_APP=run.py
     export DOMAIN=<domain_url>
 
-Run the `deployment/deploy.sh` script.
+Run the `deployment/deploy.sh` script. This will take care of everything.
 
 
 

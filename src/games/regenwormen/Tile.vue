@@ -30,7 +30,11 @@ export default {
 .placeholder {
   background: lightgray;
 }
-.placeholder_text {
-  color: lightgrey !important;
+.v-application {
+  .v-card__text {
+    .placeholder_text {
+      color: lightgrey !important;
+    }
+  }
 }
 </style>
