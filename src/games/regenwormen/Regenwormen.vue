@@ -256,7 +256,7 @@ export default {
         room: this.room.id,
         action: "START",
         data: {
-          players: this.room.users
+          players: this.room.users.filter(user => this.game.active_users.includes(user.user_id))
         }
       };
       this.$socket.client.emit("game_action", data);
