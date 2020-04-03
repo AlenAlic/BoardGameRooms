@@ -13,6 +13,15 @@
 
     <v-spacer />
 
+    <template v-if="showLoadingDice">
+      <v-icon @click="diceModal = true" class="mr-5">
+        mdi-star
+      </v-icon>
+      <modal v-model="diceModal">
+        <loading-dice />
+      </modal>
+    </template>
+
     <v-icon @click.stop="$emit('toggleRightDrawer')">
       mdi-forum
     </v-icon>
@@ -20,9 +29,23 @@
 </template>
 
 <script>
+import Modal from "../modal/Modal";
+import LoadingDice from "../easter_eggs/LoadingDice";
 export default {
+  components: { Modal, LoadingDice },
   props: {
     breakpoint: { type: Boolean, default: false }
+  },
+  data() {
+    return {
+      diceModal: false
+    };
+  },
+  computed: {
+    showLoadingDice() {
+      const names = ["Alen", "Fi", "Fii", "Fiii", "Fiiii", "Fiiiii", "Fiiiiii", "Fiiiiiii", "Fiiiiiiii"];
+      return names.includes(this.$store.state.user.username);
+    }
   }
 };
 </script>
