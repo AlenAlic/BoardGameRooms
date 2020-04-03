@@ -26,23 +26,7 @@
       </v-col>
     </v-row>
     <template v-if="game_active">
-      <v-row align="center" class="my-5">
-        <!--        <v-col cols="3">-->
-        <!--          <v-card flat class="fill-height">-->
-        <!--            <v-card-text>-->
-        <!--              <v-row align="start" justify="start" no-gutters>-->
-        <!--                <template v-if="player_tiles.length > 0">-->
-        <!--                  <v-col cols="auto" v-for="t in player_tiles" :key="t.value">-->
-        <!--                    <tile :tile="t" class="mx-2 my-2" />-->
-        <!--                  </v-col>-->
-        <!--                </template>-->
-        <!--                <v-col cols="auto" v-else>-->
-        <!--                  <tile class="mx-2 my-2" placeholder />-->
-        <!--                </v-col>-->
-        <!--              </v-row>-->
-        <!--            </v-card-text>-->
-        <!--          </v-card>-->
-        <!--        </v-col>-->
+      <v-row align="start" class="my-5">
         <v-col cols="8">
           <v-card flat>
             <v-card-text>
@@ -93,13 +77,13 @@
                 </v-col>
               </v-row>
             </v-card-text>
-            <v-card-text class="text-center" v-if="player_dice.length">
+            <v-card-text class="text-center title" v-if="player_dice.length">
               <span>{{ $t("RWM.total_score") }} {{ player_dice_score }}</span>
             </v-card-text>
           </v-card>
         </v-col>
       </v-row>
-      <v-row v-if="game.started" justify="center" class="mt-5">
+      <v-row v-if="game.started" justify="center" align="end" class="mt-5">
         <v-col v-for="player_id in game.order" :key="player_id">
           <v-card flat>
             <v-card-title class="flex_text--center" :class="{ 'primary--text': player_id === game.current_player }">

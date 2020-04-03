@@ -5,7 +5,7 @@
     :class="{ 'disabled not_allowed': disabled, clickable: clickable }"
     :elevation="highlight ? 10 : null"
   >
-    <v-card-text class="subtitle-1">
+    <v-card-text class="title">
       <span v-if="placeholder">?</span>
       <span v-else-if="dice.value <= 5">{{ dice.value }}</span>
       <v-icon small color="error" v-else>

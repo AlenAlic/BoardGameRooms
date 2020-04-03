@@ -8,7 +8,7 @@
       {{ placeholder ? "xx" : tile.value }}
     </v-card-text>
     <v-divider />
-    <v-card-text class="subtitle-1 error--text" :class="{ placeholder_text: placeholder }">
+    <v-card-text class="title error--text" :class="{ placeholder_text: placeholder }">
       {{ placeholder ? "x" : tile.worms }}
     </v-card-text>
   </v-card>
