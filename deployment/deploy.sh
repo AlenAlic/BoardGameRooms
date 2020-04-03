@@ -111,7 +111,7 @@ server {
 
     location /ping {
         include proxy_params;
-        proxy_pass http://127.0.0.1:$BGM_PORT/api/ping;
+        proxy_pass http://127.0.0.1:$BGM_PORT/ping;
     }
 
     access_log /var/log/$DOMAIN.access.log;
