@@ -1,7 +1,7 @@
 #!/bin/bash
 
 BGM_NAME=${BGM_NAME:-BoardGameRooms}
-BGM_PORT=${BGM_PORT:-5000}
+BGM_PORT=${BGM_PORT:-8300}
 BGM_GUNICORN=${BGM_GUNICORN:-boardgamerooms}
 
 
@@ -10,6 +10,12 @@ echo "Settings:"
 echo "========="
 echo "domain:"
 echo $DOMAIN
+echo "name:"
+echo $BGM_NAME
+echo "port:"
+echo $BGM_PORT
+echo "gunicorn:"
+echo $BGM_GUNICORN
 echo "Deploy Board Game Rooms? (y/n)"
 read continue
 if [[ $continue = "y" ]]
@@ -47,6 +53,7 @@ echo "Configuring firewall complete================="
 
 
 echo "Installing venv==============================="
+cd $BGM_NAME
 python3 -m venv venv
 source venv/bin/activate
 pip install pip --upgrade
