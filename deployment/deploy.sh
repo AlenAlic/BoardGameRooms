@@ -1,8 +1,8 @@
 #!/bin/bash
 
-BGM_NAME = BoardGameRooms
-BGM_PORT = 5000
-BGM_GUNICORN = boardgamerooms
+BGM_NAME=${BGM_NAME:-BoardGameRooms}
+BGM_PORT=${BGM_PORT:-5000}
+BGM_GUNICORN=${BGM_GUNICORN:-boardgamerooms}
 
 
 clear
@@ -53,6 +53,7 @@ pip install pip --upgrade
 pip install setuptools --upgrade
 pip install -r requirements.txt
 pip install gunicorn
+deactivate
 echo "Installing venv complete======================"
 
 
