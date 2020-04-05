@@ -6,6 +6,7 @@ class Game(object):
     def __init__(self):
         self.users = {}
         self.active_users = []
+        self.room = None
 
     @property
     def tag(self):

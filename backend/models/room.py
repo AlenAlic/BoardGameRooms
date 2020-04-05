@@ -95,6 +95,7 @@ class Room(object):
 
     def create_game(self, game, user_ids):
         self.game = game
+        game.room = self.id
         game.set_users([self.users[user_id] for user_id in user_ids])
 
     def stop_game(self):
