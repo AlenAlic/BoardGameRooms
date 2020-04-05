@@ -1,0 +1,11 @@
+{
+  "SET": {
+    "description": "Set",
+    "start": "Start game",
+    "score": "Score",
+    "no_set": "No set available",
+    "winners": "Winners!",
+    "sets": "Sets",
+    "penalties": "Penalties"
+  }
+}

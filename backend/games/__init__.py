@@ -1,7 +1,8 @@
 from .guess_dice_throw import GuessDiceThrow
 from .regenwormen import Regenwormen
+from .set_game import Set
 
-GAMES_LIST = [GuessDiceThrow, Regenwormen]
+GAMES_LIST = [GuessDiceThrow, Regenwormen, Set]
 
 
 def get_game(tag):

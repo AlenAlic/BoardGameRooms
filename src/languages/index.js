@@ -14,10 +14,13 @@ import GDT_NL from "../games/guess_dice_throw/languages/nl.json";
 // Regenwormen
 import RWM_EN from "../games/regenwormen/languages/en.json";
 import RWM_NL from "../games/regenwormen/languages/nl.json";
+// Aet
+import SET_EN from "../games/set_game/languages/en.json";
+import SET_NL from "../games/set_game/languages/nl.json";
 
 // Combine all translations
-const en = { ...EN, ...GDT_EN, ...RWM_EN };
-const nl = { ...NL, ...GDT_NL, ...RWM_NL };
+const en = { ...EN, ...GDT_EN, ...RWM_EN, ...SET_EN };
+const nl = { ...NL, ...GDT_NL, ...RWM_NL, ...SET_NL };
 
 const messages = {
   en,

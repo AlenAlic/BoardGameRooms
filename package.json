@@ -21,6 +21,7 @@
     "vue-axios": "^2.1.5",
     "vue-i18n": "^8.15.0",
     "vue-js-modal": "^1.3.31",
+    "vue-keypress": "^1.4.0",
     "vue-router": "^3.1.3",
     "vue-select": "^3.2.0",
     "vue-socket.io-extended": "^4.0.1",

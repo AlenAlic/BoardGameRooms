@@ -1,0 +1,11 @@
+{
+  "SET": {
+    "description": "Set",
+    "start": "Start spel",
+    "score": "Score",
+    "no_set": "Geen set mogelijk",
+    "winners": "WInnaars!",
+    "sets": "Sets",
+    "penalties": "Strafpunten"
+  }
+}
