@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row align="start" justify="center" class="my-5">
+    <v-row align="start" justify="center">
       <v-col cols="auto" v-for="t in board_tiles" :key="t.value">
         <tile
           :tile="t"
@@ -25,9 +25,43 @@
         />
       </v-col>
     </v-row>
+
     <template v-if="game_active">
-      <v-row align="start" class="my-5">
-        <v-col cols="8">
+      <v-row align="end" class="mt-5">
+        <v-col cols="6">
+          <v-card flat>
+            <v-card-actions v-if="isMyTurn && game_active">
+              <v-spacer />
+              <v-btn v-if="!game.dice_thrown && board.dice.length > 0" x-large text color="primary" @click="throwDice">
+                {{ $t("RWM.throw_dice") }}
+              </v-btn>
+              <v-btn
+                v-else-if="game.dice_thrown && !game.turn_over"
+                x-large
+                text
+                color="primary"
+                @click="chooseDice"
+                :disabled="dice === 0"
+              >
+                {{ $t("RWM.grab_dice") }}
+              </v-btn>
+              <v-btn v-else-if="game.turn_over" x-large text color="primary" @click="endTurn">
+                {{ $t("RWM.end_turn") }}
+              </v-btn>
+              <v-spacer />
+            </v-card-actions>
+          </v-card>
+        </v-col>
+        <v-col cols="6">
+          <v-card class="fill-height" flat>
+            <v-card-text class="text-center title">
+              <span>{{ $t("RWM.total_score") }} {{ player_dice_score }}</span>
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
+      <v-row align="start">
+        <v-col cols="6">
           <v-card flat>
             <v-card-text>
               <v-row align="center" justify="center" v-if="game.dice_thrown">
@@ -47,28 +81,9 @@
                 </v-col>
               </v-row>
             </v-card-text>
-            <v-card-actions v-if="isMyTurn && game_active">
-              <v-spacer />
-              <v-btn v-if="!game.dice_thrown && board.dice.length > 0" text color="primary" @click="throwDice">
-                {{ $t("RWM.throw_dice") }}
-              </v-btn>
-              <v-btn
-                v-else-if="game.dice_thrown && !game.turn_over"
-                text
-                color="primary"
-                @click="chooseDice"
-                :disabled="dice === 0"
-              >
-                {{ $t("RWM.grab_dice") }}
-              </v-btn>
-              <v-btn v-else-if="game.turn_over" text color="primary" @click="endTurn">
-                {{ $t("RWM.end_turn") }}
-              </v-btn>
-              <v-spacer />
-            </v-card-actions>
           </v-card>
         </v-col>
-        <v-col cols="4">
+        <v-col cols="6">
           <v-card class="fill-height" flat>
             <v-card-text>
               <v-row class="fill-height" align="center" justify="center">
@@ -77,13 +92,11 @@
                 </v-col>
               </v-row>
             </v-card-text>
-            <v-card-text class="text-center title" v-if="player_dice.length">
-              <span>{{ $t("RWM.total_score") }} {{ player_dice_score }}</span>
-            </v-card-text>
           </v-card>
         </v-col>
       </v-row>
-      <v-row v-if="game.started" justify="center" align="end" class="mt-5">
+
+      <v-row v-if="game.started" justify="center" align="end">
         <v-col v-for="player_id in game.order" :key="player_id">
           <v-card flat>
             <v-card-title class="flex_text--center" :class="{ 'primary--text': player_id === game.current_player }">
@@ -115,12 +128,14 @@
           </v-card>
         </v-col>
       </v-row>
+
       <v-row justify="center" v-else-if="current_user.user_id === room.admin">
         <v-btn color="primary" large @click="startGame">
           {{ $t("RWM.start_game") }}
         </v-btn>
       </v-row>
     </template>
+
     <template v-else-if="!game_active">
       <v-row justify="center">
         <v-col class="text-center">
