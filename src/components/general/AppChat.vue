@@ -47,13 +47,12 @@ export default {
   methods: {
     sendMessage() {
       if (this.message) {
-        const now = new Date();
         let data = {
           username: this.$store.state.user.username,
           user_id: this.$store.state.user.user_id,
           room: this.$store.state.user.room,
           message: this.message,
-          timestamp: now.getTime() + now.getTimezoneOffset() * 60 * 1000
+          timestamp: this.$util.timestampUTC
         };
         this.$socket.client.emit("chat_game_room", data);
         this.message = "";

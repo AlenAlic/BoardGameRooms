@@ -18,7 +18,7 @@
           {{ chatData.message }}
         </v-list-item-subtitle>
         <v-list-item-subtitle class="overline">
-          {{ humanReadableDate(chatData.timestamp) }}
+          {{ $util.humanReadableTime(chatData.timestamp) }}
         </v-list-item-subtitle>
       </v-col>
     </v-row>
@@ -34,15 +34,6 @@ export default {
   computed: {
     isCurrentUser() {
       return this.currentUser === this.chatData.user_id;
-    }
-  },
-  methods: {
-    timestampWithOffset(timestamp) {
-      return timestamp - new Date().getTimezoneOffset() * 60 * 1000;
-    },
-    humanReadableDate(timestamp) {
-      const date = new Date(this.timestampWithOffset(timestamp));
-      return date.toTimeString().substr(0, 5);
     }
   }
 };

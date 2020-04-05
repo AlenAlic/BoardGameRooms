@@ -9,10 +9,12 @@ import i18n from "./languages";
 import vuetify from "./plugins/Vuetify";
 
 // Modules
+import UtilitiesHandler from "./assets/js/utilities";
 import VueSocketIOExt from "vue-socket.io-extended";
 import io from "socket.io-client";
 
 // Register the config independent modules.
+Vue.use(UtilitiesHandler);
 const backend = process.env.NODE_ENV === "production" ? `//${window.location.host}` : "http://127.0.0.1:5000";
 Vue.use(VueSocketIOExt, io(backend));
 
