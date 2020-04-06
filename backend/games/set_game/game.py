@@ -17,7 +17,7 @@ class Set(Game):
                         cards.append(Card(color, number, fill, shape))
         shuffle(cards)
         self.cards = cards[:12]
-        self.remaining_cards = []
+        self.remaining_cards = cards[12:]
         self.scores = {}
         self.sets = {}
         self.started = False
