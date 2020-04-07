@@ -68,7 +68,7 @@ class Set(Game):
         return {
             "START_GAME": self.start_game,
             "CALL_SET": self.call_set,
-            "SELECT_CARD": self.select_card,
+            "SELECT_CARDS": self.select_cards,
             "CHECK_SET": self.check_set,
             "CHECK_BOARD": self.check_board,
             "NO_CHOICE": self.no_choice
@@ -90,15 +90,10 @@ class Set(Game):
             self.active = False
             self.current_player = data["user_id"]
 
-    def select_card(self, data):
-        tag = data["tag"]
-        if tag in self.selected_cards:
-            self.selected_cards = list(set([t for t in self.selected_cards if t != tag]))
-        else:
-            self.selected_cards.append(tag)
-            self.selected_cards = list(set(self.selected_cards))
-        # if len(self.selected_cards) == 3:
-        #     self.check_set()
+    def select_cards(self, data):
+        tags = data["tags"]
+        self.selected_cards.extend(tags)
+        # self.check_set()
 
     def set_next_cards(self, cards):
         enough_remaining = len(self.remaining_cards) >= 3

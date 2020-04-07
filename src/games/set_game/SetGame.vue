@@ -2,7 +2,7 @@
   <v-container v-if="!game.started" class="fill-height">
     <v-row align="center" justify="center">
       <v-col cols="auto">
-        <v-btn x-large text color="primary" @click="startGame">
+        <v-btn x-large text color="primary" @click="startGame" v-if="current_user.user_id === room.admin">
           {{ $t("SET.start") }}
         </v-btn>
       </v-col>
@@ -17,7 +17,10 @@
               <card
                 :card="game.cards[getCardIndex(r, c)]"
                 @click.native="current_player ? selectCard(game.cards[getCardIndex(r, c)].tag) : null"
-                :selected="game.selected_cards.includes(game.cards[getCardIndex(r, c)].tag)"
+                :selected="
+                  selected_cards.includes(game.cards[getCardIndex(r, c)].tag) ||
+                    selectedCards.includes(game.cards[getCardIndex(r, c)].tag)
+                "
                 :clickable="current_player === current_user.user_id"
                 :disabled="current_player !== current_user.user_id"
                 :shake="shakeCards.includes(game.cards[getCardIndex(r, c)].tag)"
@@ -96,15 +99,15 @@
     </v-row>
     <v-row align="center" v-if="!game.game_over">
       <v-col cols="9" class="text-center">
-        <template v-if="!current_player">
+        <template v-if="!current_player && game.active_users.includes(current_user.user_id)">
           <v-btn x-large color="primary" :disabled="!!current_player" @click="callSet">
             SET
           </v-btn>
           <Keypress :key-code="32" event="keyup" @pressed="callSet" />
         </template>
-        <div v-else-if="selected_cards.length < 3" class="display-1">
+        <div v-else-if="selectedCards.length < 3" class="display-1">
           <div class="mb-2">{{ playerName(current_player) }}</div>
-          <div>{{ timer.toFixed(1) }}</div>
+          <div v-if="timer > 0">{{ timer.toFixed(1) }}</div>
         </div>
       </v-col>
     </v-row>
@@ -121,7 +124,8 @@ export default {
   data() {
     return {
       timer: 0.0,
-      shakeCards: []
+      shakeCards: [],
+      selectedCards: []
     };
   },
   computed: {
@@ -179,18 +183,25 @@ export default {
       this.timer = 6.9;
     },
     selectCard(tag) {
-      const data = {
-        room: this.room.id,
-        action: "SELECT_CARD",
-        data: {
-          tag: tag
-        }
-      };
-      this.$socket.client.emit("game_action", data);
-      if (this.game.selected_cards.length === 2 && !this.game.selected_cards.includes(tag)) {
-        this.timer = 2.0;
+      if (this.selectedCards.includes(tag)) {
+        this.selectedCards = this.selectedCards.filter(t => t !== tag);
+      } else {
+        this.selectedCards.push(tag);
+      }
+      if (this.selectedCards.length === 3) {
+        const data = {
+          room: this.room.id,
+          action: "SELECT_CARDS",
+          data: {
+            tags: this.selectedCards
+          }
+        };
+        console.log(data);
+        this.$socket.client.emit("game_action", data);
+        this.timer = 0.0;
         setTimeout(() => {
           this.checkSet();
+          this.selectedCards = [];
         }, 1000);
       }
     },
@@ -229,7 +240,7 @@ export default {
             this.timer -= 0.1;
           }, 100);
         } else {
-          this.noChoiceMade();
+          if (this.selectedCards.length < 3) this.noChoiceMade();
         }
       }
     },
