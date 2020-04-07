@@ -98,7 +98,7 @@
               />
             </v-list-item-content>
           </v-list-item>
-          <v-list-item v-else-if="$store.getters.game">
+          <v-list-item>
             <v-list-item-content v-if="$store.getters.game.active_users.includes($store.state.user.user_id)">
               <v-btn color="primary" @click="leaveGameModal = true">
                 {{ $t("game_menu.leave_game.btn") }}
