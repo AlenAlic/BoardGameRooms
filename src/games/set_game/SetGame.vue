@@ -196,7 +196,6 @@ export default {
             tags: this.selectedCards
           }
         };
-        console.log(data);
         this.$socket.client.emit("game_action", data);
         this.timer = 0.0;
         setTimeout(() => {
